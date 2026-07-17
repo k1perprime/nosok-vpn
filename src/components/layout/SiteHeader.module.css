@@ -1,0 +1,150 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  min-height: 76px;
+  background: rgb(247 241 229 / .96);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 76px;
+}
+
+.logo {
+  margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logoMark {
+  display: block;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.nav,
+.navOpen {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav a,
+.navOpen a,
+.account {
+  text-decoration: none;
+}
+
+.account {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 14px;
+  color: var(--blue-ink);
+  background: color-mix(in srgb, var(--blue-dust) 46%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--blue-ink) 54%, var(--border));
+  border-radius: 12px;
+  font-weight: 850;
+  white-space: nowrap;
+  transition: color 160ms ease, background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.account:hover {
+  color: var(--surface);
+  background: var(--blue-ink);
+  border-color: var(--blue-ink);
+}
+
+.cta,
+.login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.cta {
+  color: var(--surface);
+  background: var(--text);
+}
+
+.login {
+  color: var(--text);
+  background: var(--terracotta-soft);
+  border: 1px solid var(--terracotta);
+}
+
+.menuButton {
+  display: none;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+
+  .navOpen {
+    position: absolute;
+    top: 68px;
+    right: 0;
+    left: 0;
+    display: grid;
+    padding: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow);
+  }
+
+  .navOpen a {
+    justify-content: flex-start;
+  }
+
+  .menuButton {
+    display: grid;
+  }
+
+  .cta {
+    display: none;
+  }
+}
+
+@media (max-width: 590px) {
+  .login {
+    display: none;
+  }
+
+  .inner {
+    gap: 10px;
+  }
+
+  .account {
+    padding-inline: 10px;
+    font-size: .8rem;
+  }
+}

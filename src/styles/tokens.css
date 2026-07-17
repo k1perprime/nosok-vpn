@@ -1,0 +1,19 @@
+:root {
+  --canvas: #F7F1E5;
+  --surface: #FCF8EF;
+  --muted: #EDE4D5;
+  --text: #3D352E;
+  --text-muted: #7D7267;
+  --terracotta: #BD7657;
+  --terracotta-soft: #E5B39D;
+  --blue-dust: #AFC1CB;
+  --blue-ink: #526A78;
+  --sage: #BFC9B2;
+  --danger: #B65F59;
+  --border: #D8CDBD;
+  --shadow: 0 24px 70px rgb(61 53 46 / 0.10);
+  --radius-sm: 14px;
+  --radius-md: 24px;
+  --radius-lg: 38px;
+  --container: min(1440px, calc(100vw - clamp(40px, 6vw, 112px)));
+}

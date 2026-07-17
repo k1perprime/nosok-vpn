@@ -1,0 +1,237 @@
+.section {
+  background: var(--blue-dust);
+  border-block: 1px solid var(--blue-ink);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 6vw, 88px);
+  align-items: start;
+}
+
+.intro {
+  position: sticky;
+  top: 112px;
+}
+
+.intro h2 {
+  max-width: 660px;
+  margin: 18px 0 24px;
+  font-size: clamp(2.75rem, 6vw, 5.8rem);
+  font-stretch: condensed;
+  font-variation-settings: 'wdth' 82;
+  font-weight: 860;
+  letter-spacing: -.065em;
+  line-height: .94;
+}
+
+.intro > p:last-child {
+  max-width: 500px;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.calculator {
+  padding: clamp(22px, 4vw, 42px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.calculator fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.calculator legend,
+.calculator label {
+  display: block;
+  font-weight: 800;
+}
+
+.duration {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-block: 10px 26px;
+}
+
+.duration button {
+  display: grid;
+  place-content: center;
+  min-height: 62px;
+  padding: 8px 6px;
+  color: var(--text);
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.duration button[aria-pressed='true'] {
+  color: var(--surface);
+  background: var(--blue-ink);
+  border-color: var(--blue-ink);
+}
+
+.duration small {
+  font-size: .62rem;
+  font-weight: 750;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.calculator select {
+  width: 100%;
+  min-height: 48px;
+  padding-inline: 12px;
+  margin-top: 10px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.quote {
+  display: grid;
+  gap: 12px;
+  margin-block: 28px 14px;
+}
+
+.quote div {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.quote dt {
+  color: var(--text);
+}
+
+.quote dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  text-align: end;
+  white-space: nowrap;
+}
+
+.quote .total {
+  font-size: clamp(1.8rem, 4vw, 3.3rem);
+  font-weight: 900;
+  letter-spacing: -.045em;
+  line-height: .9;
+}
+
+.loading {
+  min-height: 96px;
+  margin-block: 28px 14px;
+}
+
+.preliminary {
+  color: var(--text);
+  font-size: .83rem;
+}
+
+.telegramGrace {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  padding: 16px;
+  margin-top: 20px;
+  background: color-mix(in srgb, var(--sage) 48%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--sage) 78%, var(--blue-ink));
+  border-radius: 16px;
+}
+
+.telegramGraceIcon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--surface);
+  background: var(--blue-ink);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.telegramGrace p,
+.telegramGrace h3 {
+  margin: 0;
+}
+
+.telegramGraceEyebrow {
+  margin-bottom: 4px !important;
+  color: var(--blue-ink);
+  font-size: .68rem;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.telegramGrace h3 {
+  margin-bottom: 7px;
+  font-size: 1.08rem;
+  line-height: 1.05;
+}
+
+.telegramGrace div > p:not(.telegramGraceEyebrow) {
+  font-size: .88rem;
+  line-height: 1.4;
+}
+
+.telegramGrace a {
+  color: inherit;
+  font-weight: 800;
+  text-decoration-color: var(--terracotta);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.telegramGrace span {
+  display: inline-block;
+  margin-top: 9px;
+  color: var(--blue-ink);
+  font-size: .72rem;
+  font-weight: 750;
+}
+
+.continue {
+  width: 100%;
+  margin-top: 8px;
+}
+
+@media (max-width: 840px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .duration {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quote div {
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .quote dd,
+  .quote .total {
+    text-align: start;
+  }
+}

@@ -1,0 +1,94 @@
+html {
+  color: var(--text);
+  background: var(--canvas);
+  scroll-padding-top: 88px;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: clip;
+  background: var(--canvas);
+  line-height: 1.5;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select {
+  min-height: 44px;
+}
+
+a[href] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  vertical-align: middle;
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue-ink);
+  outline-offset: 4px;
+}
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(72px, 9vw, 132px);
+}
+
+.eyebrow {
+  padding-inline-start: .65rem;
+  color: var(--text);
+  border-inline-start: 3px solid var(--terracotta);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --container: min(100% - 24px, 1180px);
+  }
+
+  .section {
+    padding-block: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -1,0 +1,147 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-weight: 750;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: .58;
+  transform: none;
+}
+
+.primary {
+  color: var(--surface);
+  background: var(--text);
+}
+
+.secondary {
+  color: var(--text);
+  background: var(--terracotta-soft);
+  border-color: var(--terracotta);
+}
+
+.ghost {
+  color: var(--text);
+  background: transparent;
+  border-color: var(--border);
+}
+
+.card {
+  padding: clamp(20px, 3vw, 32px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+.notice {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  color: var(--text);
+  border: 1px solid var(--blue-ink);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--blue-dust) 38%, var(--surface));
+}
+
+.error {
+  color: var(--text);
+  border-color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, var(--surface));
+}
+
+.info {
+  color: var(--text);
+  border-color: var(--blue-ink);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgb(61 53 46 / .48);
+}
+
+.dialog {
+  position: relative;
+  width: min(100%, 480px);
+  max-height: min(760px, calc(100dvh - 32px));
+  margin: 0;
+  padding: 36px;
+  overflow: auto;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+.dialog h2 {
+  max-width: calc(100% - 44px);
+  margin: 0;
+  font-size: clamp(1.55rem, 3.2vw, 1.85rem);
+  line-height: 1.12;
+  letter-spacing: -.035em;
+}
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  min-height: 44px;
+  color: var(--text);
+  background: color-mix(in srgb, var(--muted) 70%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--border) 70%, var(--surface));
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--surface);
+  background: var(--text);
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.field input {
+  min-height: 48px;
+  padding: 0 14px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.field input:focus {
+  border-color: var(--blue-ink);
+  outline: 0;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue-dust) 58%, transparent);
+}
+
+.field small {
+  color: var(--danger);
+  font-weight: 600;
+}

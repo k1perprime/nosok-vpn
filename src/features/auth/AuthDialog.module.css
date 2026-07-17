@@ -1,0 +1,117 @@
+.intro {
+  max-width: 34ch;
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: .97rem;
+  line-height: 1.55;
+}
+
+.form {
+  display: grid;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.credentials {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  padding: 18px;
+  margin: 0;
+  background: color-mix(in srgb, var(--muted) 42%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--border) 78%, var(--surface));
+  border-radius: 18px;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .55);
+}
+
+.credentials label {
+  gap: 6px;
+  margin: 0;
+}
+
+.credentials input {
+  min-height: 50px;
+  padding-inline-end: 54px;
+  background: rgb(255 255 255 / .40);
+}
+
+.submit,
+.telegram {
+  width: 100%;
+  min-height: 52px;
+}
+
+.submit {
+  box-shadow: 0 10px 22px rgb(61 53 46 / .16);
+}
+
+.telegramArea {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: .79rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  flex: 1;
+  height: 1px;
+  content: '';
+  background: var(--border);
+}
+
+.telegram {
+  background: color-mix(in srgb, var(--terracotta-soft) 72%, var(--surface));
+}
+
+.switches {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 16px;
+  padding-top: 18px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.switches button {
+  min-height: 38px;
+  text-align: left;
+  padding: 0;
+  color: var(--blue-ink);
+  background: none;
+  border: 0;
+  font-size: .9rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--blue-ink) 45%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.switches button:last-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 520px) {
+  .credentials {
+    padding: 16px;
+  }
+
+  .switches {
+    grid-template-columns: 1fr;
+  }
+
+  .switches button:last-child {
+    grid-column: auto;
+  }
+}

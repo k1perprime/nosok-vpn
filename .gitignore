@@ -1,0 +1,53 @@
+# Environment files — keep the documented template in version control.
+.env
+.env.*
+!.env.example
+
+# Secrets, credentials, and locally issued certificates.
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa
+id_rsa.pub
+credentials.json
+service-account*.json
+*token*.json
+*secret*.json
+
+# JavaScript / TypeScript dependencies and build artefacts.
+node_modules/
+.next/
+out/
+dist/
+build/
+.turbo/
+*.tsbuildinfo
+
+# Python virtual environments and bytecode.
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+
+# Tests, reports, caches, logs, and temporary files.
+coverage/
+playwright-report/
+test-results/
+.cache/
+.eslintcache
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Local development folders.
+.worktrees/

@@ -1,0 +1,49 @@
+.card {
+  position: relative;
+  min-height: 360px;
+  padding: 64px 24px 24px;
+  overflow: hidden;
+  background: var(--muted);
+  border: 1px dashed var(--terracotta);
+  border-radius: var(--radius-lg);
+}
+
+.badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  padding: 8px 12px;
+  color: var(--surface);
+  background: var(--text);
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.card dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.card dl div {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  gap: 12px;
+  padding: 9px 12px;
+  background: rgb(252 248 239 / .88);
+  border-radius: 10px;
+}
+
+.card dt {
+  color: var(--text);
+  font-size: .76rem;
+  font-weight: 750;
+}
+
+.card dd {
+  margin: 0;
+  font-size: .86rem;
+}
