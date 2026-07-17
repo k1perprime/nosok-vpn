@@ -25,7 +25,11 @@ export function ArtBriefCard({ scene, aspect }: ArtBriefCardProps) {
   const imageSrc = imageByAspect[imageAspect] ?? '/images/nosok-header-icon.png';
 
   return (
-    <aside className={styles.card} aria-label={scene}>
+    <aside
+      className={styles.card}
+      aria-label={scene}
+      data-illustration={imageAspect}
+    >
       <Image
         src={imageSrc}
         alt=""

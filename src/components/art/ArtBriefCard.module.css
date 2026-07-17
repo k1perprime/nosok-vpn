@@ -12,6 +12,26 @@
 }
 
 .mascot {
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: 76% center;
+}
+
+.card[data-illustration='1:1'] .mascot {
+  object-position: 72% center;
+}
+
+.card[data-illustration='3:2'] .mascot {
+  object-position: 78% center;
+}
+
+.card[data-illustration='4:3'] .mascot {
+  object-position: 82% center;
+}
+
+.card[data-illustration='4:5'] .mascot {
+  object-position: 74% center;
+}
+
+.card[data-illustration='16:10'] .mascot {
+  object-position: 80% center;
 }

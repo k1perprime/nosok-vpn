@@ -98,7 +98,7 @@
 
 .heroArt > aside {
   min-height: 0;
-  padding: 58px 18px 18px;
+  padding: 0;
   background: var(--blue-dust);
   box-shadow: 14px 14px 0 var(--muted);
 }
