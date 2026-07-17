@@ -2,4 +2,15 @@
 @import '../src/styles/base.css';
 
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; font-family: 'Onest Variable', system-ui, sans-serif; }
+
+body {
+  margin: 0;
+  font-family: 'Onest Variable', system-ui, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}

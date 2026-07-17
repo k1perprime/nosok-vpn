@@ -125,6 +125,10 @@
   margin-bottom: 24px;
 }
 
+.accountHeader > div {
+  min-width: 0;
+}
+
 .accountHeader p {
   margin: 0 0 4px;
   color: var(--text-muted);
@@ -151,6 +155,7 @@
 
 .homeLink,
 .textLink {
+  min-height: 44px;
   padding-inline: 16px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -176,6 +181,7 @@
   font: inherit;
   font-weight: 760;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .loginButton:hover {
@@ -256,6 +262,7 @@
 .dataList dd {
   margin: 0;
   font-weight: 760;
+  overflow-wrap: anywhere;
 }
 
 .emptyState {
@@ -305,6 +312,7 @@
 .deviceRow > div {
   display: grid;
   gap: 3px;
+  min-width: 0;
 }
 
 .deviceRow span,
@@ -363,6 +371,14 @@
   text-decoration: none;
 }
 
+.panel,
+.emptyState,
+.deviceRow,
+.paymentRow,
+.helpGrid a {
+  overflow-wrap: anywhere;
+}
+
 .supportHours {
   margin: 22px 0 0;
   color: var(--text-muted);
@@ -416,6 +432,7 @@
 
   .mobileNav button {
     display: grid;
+    min-height: 56px;
     min-width: 0;
     place-items: center;
     gap: 2px;
@@ -425,11 +442,13 @@
     font-variation-settings: 'wdth' 82;
     line-height: 1.05;
     text-align: center;
+    touch-action: manipulation;
   }
 
   .mobileNav button span {
     max-width: 100%;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
+    white-space: normal;
   }
 
   .mobileNav button[aria-current='page'] {
@@ -459,6 +478,20 @@
     border-radius: 26px;
   }
 
+  .accountHeader h1 {
+    font-size: clamp(1.9rem, 10vw, 2.7rem);
+  }
+
+  .headerActions {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .headerActions > * {
+    width: 100%;
+    justify-content: center;
+  }
+
   .helpGrid {
     grid-template-columns: 1fr;
   }
@@ -481,5 +514,28 @@
 
   .paymentRow span {
     text-align: left;
+  }
+}
+
+@media (max-width: 380px) {
+  .workspace {
+    padding-inline: 10px;
+  }
+
+  .panel {
+    padding-inline: 16px;
+  }
+
+  .headerActions {
+    grid-template-columns: 1fr;
+  }
+
+  .mobileNav {
+    min-height: 86px;
+  }
+
+  .mobileNav button {
+    padding-inline: 1px;
+    font-size: .64rem;
   }
 }

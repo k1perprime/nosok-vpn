@@ -7,6 +7,7 @@
 
 .heroGrid {
   display: grid;
+  min-width: 0;
   grid-template-columns: 1fr;
   align-items: start;
   column-gap: clamp(32px, 6vw, 88px);
@@ -30,11 +31,13 @@
 .heroTitleVisual {
   display: block;
   width: 100%;
+  max-width: 100%;
 }
 
 .knitNatyaniImage,
 .knitSecurityImage {
   display: block;
+  max-width: 100%;
   height: auto;
   margin-left: 0;
 }
@@ -64,6 +67,7 @@
   grid-column: 1;
   grid-row: 4;
   flex-wrap: wrap;
+  align-items: stretch;
   gap: 12px;
   margin-top: 30px;
 }
@@ -73,10 +77,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
+  min-width: 0;
+  min-height: 48px;
   padding: 0 21px;
   border-radius: 14px;
   font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
   text-decoration: none;
   transition: color 160ms ease, background-color 160ms ease,
     border-color 160ms ease;
@@ -118,6 +125,7 @@
 .privacyIllustration,
 .finalIllustration {
   width: 100%;
+  max-width: 100%;
 }
 
 .heroIllustration {
@@ -167,6 +175,7 @@
 
 .sectionIntro {
   display: grid;
+  min-width: 0;
   grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
   column-gap: clamp(32px, 7vw, 100px);
   align-items: end;
@@ -188,6 +197,7 @@
   font-weight: 860;
   letter-spacing: -.065em;
   line-height: .95;
+  overflow-wrap: anywhere;
 }
 
 .sectionIntro > p:last-child:not(:global(.eyebrow)) {
@@ -276,6 +286,8 @@
 }
 
 .regionFilters button {
+  min-width: 0;
+  min-height: 44px;
   padding: 0 18px;
   color: var(--text);
   background: transparent;
@@ -283,6 +295,8 @@
   border-radius: 999px;
   font-size: .9rem;
   font-weight: 750;
+  line-height: 1.15;
+  text-align: center;
   cursor: pointer;
   transition: color 160ms ease, background-color 160ms ease,
     border-color 160ms ease;
@@ -300,6 +314,7 @@
 
 .locationsGrid {
   display: grid;
+  min-width: 0;
   grid-template-columns: minmax(0, 1fr) minmax(min(42vw, 420px), .92fr);
   gap: clamp(36px, 4vw, 64px);
   align-items: center;
@@ -307,6 +322,7 @@
 
 .locationCards {
   display: grid;
+  min-width: 0;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
@@ -315,6 +331,7 @@
   position: relative;
   isolation: isolate;
   display: grid;
+  min-width: 0;
   min-height: 128px;
   padding: 20px;
   overflow: hidden;
@@ -353,6 +370,7 @@
 }
 
 .locationsArt {
+  min-width: 0;
   width: min(100%, 680px);
   justify-self: end;
   align-self: center;
@@ -378,16 +396,15 @@
 
 .privacyGrid {
   display: grid;
-  width: min(
-    1800px,
-    calc(100vw - max((100vw - var(--container)) / 2, clamp(24px, 6vw, 112px)))
-  );
+  width: 100%;
+  min-width: 0;
   grid-template-columns: minmax(0, 1.45fr) minmax(420px, 1fr);
   gap: clamp(48px, 5vw, 72px);
   align-items: center;
 }
 
 .privacyArt {
+  min-width: 0;
   width: 100%;
   max-width: none;
   justify-self: start;
@@ -468,6 +485,7 @@
 
 .reviews {
   display: grid;
+  min-width: 0;
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
   column-gap: clamp(28px, 6vw, 84px);
 }
@@ -521,6 +539,7 @@
 
 .faq {
   display: grid;
+  min-width: 0;
   grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr);
   gap: clamp(34px, 7vw, 104px);
   align-items: start;
@@ -564,12 +583,14 @@
 
 .finalCta {
   display: grid;
+  min-width: 0;
   grid-template-columns: minmax(0, 1fr) minmax(min(42vw, 420px), .92fr);
   gap: clamp(40px, 6vw, 96px);
   align-items: center;
 }
 
 .finalArt {
+  min-width: 0;
   width: min(100%, 672px);
   justify-self: end;
   align-self: center;
@@ -676,6 +697,17 @@
 }
 
 @media (max-width: 760px) {
+  .locationsGrid,
+  .privacyGrid,
+  .finalCta {
+    gap: clamp(28px, 7vw, 40px);
+  }
+
+  .reviews,
+  .faq {
+    row-gap: clamp(28px, 7vw, 40px);
+  }
+
   .proof ul {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -736,6 +768,17 @@
     margin-top: -18px;
   }
 
+  .regionFilters button {
+    padding-inline: 14px;
+  }
+
+  .locationCards strong,
+  .locationCards span,
+  .reviews blockquote,
+  .disclosures summary {
+    overflow-wrap: anywhere;
+  }
+
   .reviews,
   .faq {
     grid-template-columns: 1fr;
@@ -756,12 +799,21 @@
     padding-block: 42px 64px;
   }
 
+  .lead {
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
   .actions {
     display: grid;
+    gap: 10px;
+    margin-top: 24px;
   }
 
   .actions a {
     width: 100%;
+    min-height: 48px;
+    padding-inline: 16px;
   }
 
   .heroIllustration {
@@ -785,11 +837,22 @@
 
   .regionFilters {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .regionFilters button {
+    width: 100%;
+    padding: 8px 10px;
   }
 
   .locationCards {
     grid-template-columns: 1fr;
+  }
+
+  .locationCards article {
+    min-height: 112px;
+    padding: 16px;
   }
 
   .autoBypassCard {
@@ -818,5 +881,30 @@
   .benefits li:nth-child(even):not(:first-child) article,
   .benefits li:nth-child(3n) article {
     margin-inline: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero {
+    padding-block: 32px 52px;
+  }
+
+  .proof li {
+    overflow-wrap: anywhere;
+  }
+
+  .stepNumber {
+    width: 48px;
+    height: 48px;
+  }
+
+  .steps article {
+    grid-template-columns: 48px minmax(0, 1fr);
+    column-gap: 14px;
+  }
+
+  .benefits article,
+  .benefits li:first-child article {
+    grid-template-columns: 30px minmax(0, 1fr);
   }
 }

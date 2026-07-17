@@ -33,6 +33,7 @@
   min-height: 50px;
   padding-inline-end: 54px;
   background: rgb(255 255 255 / .40);
+  min-width: 0;
 }
 
 .submit,
@@ -96,6 +97,7 @@
   text-decoration-color: color-mix(in srgb, var(--blue-ink) 45%, transparent);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  touch-action: manipulation;
 }
 
 .switches button:last-child {
@@ -113,5 +115,24 @@
 
   .switches button:last-child {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .intro {
+    font-size: .92rem;
+  }
+
+  .credentials {
+    padding: 14px;
+  }
+
+  .credentials input {
+    padding-inline: 12px;
+  }
+
+  .divider {
+    font-size: .72rem;
+    letter-spacing: .02em;
   }
 }

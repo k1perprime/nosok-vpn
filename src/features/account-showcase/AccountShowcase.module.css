@@ -91,6 +91,10 @@
   margin: 0 auto 24px;
 }
 
+.accountHeader > div {
+  min-width: 0;
+}
+
 .accountHeader p {
   margin: 0 0 4px;
   color: var(--text-muted);
@@ -138,6 +142,7 @@
   font: inherit;
   font-weight: 760;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .loginButton:hover {
@@ -239,6 +244,7 @@
 .dataList dd {
   margin: 0;
   font-weight: 760;
+  overflow-wrap: anywhere;
 }
 
 .deviceList,
@@ -262,6 +268,7 @@
 .paymentRow > div {
   display: grid;
   gap: 3px;
+  min-width: 0;
 }
 
 .deviceRow span,
@@ -281,6 +288,13 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+}
+
+.panel,
+.statusBadge,
+.deviceRow,
+.paymentRow {
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 899px) {
@@ -332,6 +346,20 @@
     border-radius: 26px;
   }
 
+  .accountHeader h1 {
+    font-size: clamp(1.9rem, 10vw, 2.7rem);
+  }
+
+  .headerActions {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100%;
+  }
+
+  .headerActions > * {
+    width: 100%;
+    justify-content: center;
+  }
+
   .panelActions,
   .profileActions {
     display: grid;
@@ -351,7 +379,22 @@
 
   .deviceRow button,
   .paymentRow button {
+    width: 100%;
     margin-top: 8px;
   }
 
+}
+
+@media (max-width: 380px) {
+  .workspace {
+    padding-inline: 10px;
+  }
+
+  .panel {
+    padding-inline: 16px;
+  }
+
+  .headerActions {
+    grid-template-columns: 1fr;
+  }
 }

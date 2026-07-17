@@ -1,5 +1,5 @@
 .footer {
-  padding-block: 76px 28px;
+  padding-block: clamp(52px, 8vw, 76px) 28px;
   color: var(--surface);
   background: var(--blue-ink);
 }
@@ -18,11 +18,12 @@
 .top h2 {
   max-width: 620px;
   margin: 18px 0 24px;
-  font-size: clamp(2.5rem, 5vw, 5.5rem);
+  font-size: clamp(2rem, 8vw, 5.5rem);
   font-stretch: condensed;
   font-variation-settings: 'wdth' 82;
   letter-spacing: -.06em;
   line-height: .94;
+  overflow-wrap: anywhere;
 }
 
 .top > div:first-child > p:last-child {
@@ -44,6 +45,7 @@
 
 .top li {
   display: flex;
+  min-inline-size: 0;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px 18px;
@@ -59,7 +61,9 @@
 
 .top a {
   min-block-size: 44px;
+  max-inline-size: 100%;
   font-weight: 750;
+  overflow-wrap: anywhere;
   text-underline-offset: 4px;
 }
 
@@ -90,6 +94,7 @@
 .bottom [aria-disabled='true'] {
   color: color-mix(in srgb, var(--surface) 90%, transparent);
   cursor: not-allowed;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 760px) {
@@ -107,5 +112,10 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 0;
+  }
+
+  .bottom {
+    gap: 10px 18px;
+    margin-top: 48px;
   }
 }

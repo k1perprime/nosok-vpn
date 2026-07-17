@@ -1,18 +1,22 @@
 html {
   color: var(--text);
   background: var(--canvas);
+  overflow-x: clip;
   scroll-padding-top: 88px;
 }
 
 body {
   min-width: 320px;
+  overflow-x: clip;
   background: var(--canvas);
   line-height: 1.5;
 }
 
 button,
 input,
-select {
+select,
+textarea {
+  max-inline-size: 100%;
   font: inherit;
 }
 
@@ -22,8 +26,22 @@ a {
 
 button,
 input,
-select {
+select,
+textarea {
   min-height: 44px;
+}
+
+button,
+[role='button'],
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+img,
+svg {
+  max-inline-size: 100%;
 }
 
 a[href] {
@@ -75,6 +93,13 @@ a[href] {
   :root {
     --container: calc(100% - 24px);
     --section-space: 64px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --container: calc(100% - 20px);
+    --section-space: 52px;
   }
 }
 

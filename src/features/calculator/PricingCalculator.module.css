@@ -33,6 +33,7 @@
 }
 
 .calculator {
+  min-width: 0;
   padding: clamp(22px, 4vw, 42px);
   background: var(--surface);
   border: 1px solid var(--border);
@@ -69,6 +70,7 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 .duration button[aria-pressed='true'] {
@@ -93,6 +95,7 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
+  touch-action: manipulation;
 }
 
 .quote {
@@ -204,6 +207,13 @@
   font-weight: 750;
 }
 
+.calculator,
+.quote dt,
+.telegramGrace,
+.preliminary {
+  overflow-wrap: anywhere;
+}
+
 .continue {
   width: 100%;
   margin-top: 8px;
@@ -220,6 +230,15 @@
 }
 
 @media (max-width: 480px) {
+  .calculator {
+    padding: 20px 18px;
+    border-radius: 24px;
+  }
+
+  .intro h2 {
+    font-size: clamp(2.25rem, 12vw, 3rem);
+  }
+
   .duration {
     grid-template-columns: 1fr 1fr;
   }
@@ -233,5 +252,32 @@
   .quote dd,
   .quote .total {
     text-align: start;
+  }
+}
+
+@media (max-width: 380px) {
+  .calculator {
+    padding-inline: 16px;
+  }
+
+  .duration {
+    gap: 6px;
+  }
+
+  .duration button {
+    min-height: 58px;
+    padding-inline: 4px;
+    font-size: .92rem;
+  }
+
+  .telegramGrace {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px;
+  }
+
+  .telegramGraceIcon {
+    width: 36px;
+    height: 36px;
   }
 }
