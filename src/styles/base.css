@@ -6,7 +6,6 @@ html {
 
 body {
   min-width: 320px;
-  overflow-x: clip;
   background: var(--canvas);
   line-height: 1.5;
 }
@@ -47,7 +46,7 @@ a[href] {
 }
 
 .section {
-  padding-block: clamp(72px, 9vw, 132px);
+  padding-block: var(--section-space);
 }
 
 .eyebrow {
@@ -74,11 +73,8 @@ a[href] {
 
 @media (max-width: 600px) {
   :root {
-    --container: min(100% - 24px, 1180px);
-  }
-
-  .section {
-    padding-block: 64px;
+    --container: calc(100% - 24px);
+    --section-space: 64px;
   }
 }
 

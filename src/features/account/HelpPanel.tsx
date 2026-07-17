@@ -15,7 +15,7 @@ export function HelpPanel() {
       aria-labelledby="help-title"
     >
       <div className={styles.panelHeading}>
-        <p className="eyebrow">Мы рядом</p>
+        <p className="eyebrow">Поддержка на связи</p>
         <h2 id="help-title">Помощь</h2>
         <p className={styles.sectionLead}>
           Напишите удобным способом. Живой человек подключится в часы работы

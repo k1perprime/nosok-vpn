@@ -12,7 +12,7 @@
 
 .intro {
   position: sticky;
-  top: 112px;
+  top: var(--sticky-offset);
 }
 
 .intro h2 {
@@ -170,7 +170,7 @@
 
 .telegramGraceEyebrow {
   margin-bottom: 4px !important;
-  color: var(--blue-ink);
+  color: var(--text);
   font-size: .68rem;
   font-weight: 850;
   letter-spacing: .08em;
@@ -199,7 +199,7 @@
 .telegramGrace span {
   display: inline-block;
   margin-top: 9px;
-  color: var(--blue-ink);
+  color: var(--text);
   font-size: .72rem;
   font-weight: 750;
 }

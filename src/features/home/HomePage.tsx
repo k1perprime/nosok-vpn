@@ -1,7 +1,7 @@
-import { ArtBriefCard } from '@/src/components/art/ArtBriefCard';
 import { SiteFooter } from '@/src/components/layout/SiteFooter';
 import { SiteHeader } from '@/src/components/layout/SiteHeader';
 import { benefits, proofItems, steps } from '@/src/content/home';
+import { RotatingIllustration } from '@/src/features/illustrations/RotatingIllustration';
 import { Hero } from './Hero';
 import { HomeLowerSections } from './HomeLowerSections';
 import { Locations } from './Locations';
@@ -68,15 +68,10 @@ export function HomePage() {
             </div>
             <div className={styles.privacyGrid}>
               <div className={styles.privacyArt}>
-                <ArtBriefCard
-                  scene="Приватность"
-                  action="Носок завязывает последнюю защитную петлю вокруг личных экранов"
-                  emotion="Спокойная сосредоточенность"
-                  background="Тихая пастельная комната"
-                  aspect="4:5"
-                  transparency="Защитная петля и маскот отдельно"
-                  desktopCrop="Иллюстрация слева от преимуществ"
-                  mobileCrop="Крупный маскот после заголовка"
+                <RotatingIllustration
+                  slotId="home.privacy.aside"
+                  className={styles.privacyIllustration}
+                  sizes="(max-width: 980px) min(720px, 100vw), 34vw"
                 />
               </div>
               <ol className={styles.benefits}>

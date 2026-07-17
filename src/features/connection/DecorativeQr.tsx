@@ -31,13 +31,13 @@ function filledTile(row: number, column: number) {
   return finder ?? (row * 11 + column * 7 + row * column) % 9 < 4;
 }
 
-export function DecorativeQr() {
+export function DecorativeQr({ id }: { id: string }) {
   return (
-    <figure className={styles.qrPreview}>
+    <figure id={id} className={styles.qrPreview}>
       <div
         className={styles.qrCode}
         role="img"
-        aria-label="Демонстрационный QR-код"
+        aria-label="Визуальный QR-код"
       >
         {Array.from({ length: size * size }, (_, index) => {
           const row = Math.floor(index / size);
@@ -52,7 +52,7 @@ export function DecorativeQr() {
           );
         })}
       </div>
-      <figcaption>Настоящий QR появится после интеграции.</figcaption>
+      <figcaption>Визуальный QR — без данных подключения.</figcaption>
     </figure>
   );
 }

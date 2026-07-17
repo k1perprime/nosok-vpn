@@ -15,5 +15,9 @@
   --radius-sm: 14px;
   --radius-md: 24px;
   --radius-lg: 38px;
-  --container: min(1440px, calc(100vw - clamp(40px, 6vw, 112px)));
+  --content-max: clamp(1152px, calc(45vw + 288px), 1440px);
+  --container: min(var(--content-max), calc(100vw - clamp(24px, 6vw, 112px)));
+  --header-height: clamp(68px, calc(1.25vw + 44px), 76px);
+  --sticky-offset: calc(var(--header-height) + 36px);
+  --section-space: clamp(64px, 7vw, 132px);
 }

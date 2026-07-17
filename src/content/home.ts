@@ -2,7 +2,7 @@ export const proofItems = [
   'С 2020 года',
   'До 10 устройств',
   '7 платформ',
-  'Поддержка каждый день',
+  'Поддержка на связи',
 ] as const;
 
 export const steps = [
@@ -46,7 +46,7 @@ export const locations = [
     city: 'Литва',
     country: 'Локация VPN',
     region: 'europe',
-    flag: 'lithuania',
+    flag: 'lithuania-v2',
   },
   {
     city: 'Индия',
@@ -70,19 +70,19 @@ export const locations = [
     city: 'Германия',
     country: 'Локация VPN',
     region: 'europe',
-    flag: 'germany',
+    flag: 'germany-v2',
   },
   {
     city: 'Латвия',
     country: 'Локация VPN',
     region: 'europe',
-    flag: 'latvia',
+    flag: 'latvia-v2',
   },
   {
     city: 'Россия — YouTube без рекламы',
     country: 'Специальный маршрут',
     region: 'special',
-    flag: 'russia',
+    flag: 'russia-v2',
   },
   {
     city: 'Швейцария',
@@ -94,7 +94,7 @@ export const locations = [
     city: 'Нидерланды',
     country: 'Локация VPN',
     region: 'europe',
-    flag: 'netherlands',
+    flag: 'netherlands-v2',
   },
   {
     city: 'Финляндия',
@@ -106,7 +106,7 @@ export const locations = [
     city: 'США',
     country: 'Локация VPN',
     region: 'americas',
-    flag: 'usa',
+    flag: 'usa-v2',
   },
   {
     city: 'Япония',
@@ -118,7 +118,7 @@ export const locations = [
     city: 'Германия — игровой',
     country: 'Специальный маршрут',
     region: 'special',
-    flag: 'germany',
+    flag: 'germany-v2',
   },
   {
     city: 'LTE — все операторы',

@@ -2,25 +2,22 @@
 
 import Link from 'next/link';
 import { useState, type ReactNode } from 'react';
-import { StatusNotice } from '@/src/components/ui/StatusNotice';
 import { accountNavigation, type AccountSection } from '@/src/content/account';
 import { AuthDialog } from '@/src/features/auth/AuthDialog';
 import { AccountNavigation } from './AccountNavigation';
 import { ConnectionWizard } from '@/src/features/connection/ConnectionWizard';
 import { DevicesPanel } from './DevicesPanel';
 import { HelpPanel } from './HelpPanel';
-import { OverviewPanel } from './OverviewPanel';
 import { PaymentsPanel } from './PaymentsPanel';
 import { ProfilePanel } from './ProfilePanel';
 import { SubscriptionPanel } from './SubscriptionPanel';
 import styles from './AccountPage.module.css';
 
 export function AccountPage() {
-  const [active, setActive] = useState<AccountSection>('overview');
+  const [active, setActive] = useState<AccountSection>('subscription');
   const [authOpen, setAuthOpen] = useState(false);
 
   const panels = {
-    overview: <OverviewPanel onNavigate={setActive} />,
     subscription: <SubscriptionPanel />,
     connection: (
       <div className={`${styles.panel} ${styles.connectionPanel}`}>
@@ -44,9 +41,6 @@ export function AccountPage() {
         </Link>
         <p className={styles.sidebarLabel}>Личный кабинет</p>
         <AccountNavigation active={active} onChange={setActive} />
-        <p className={styles.sidebarNote}>
-          Визуальная версия кабинета: структура готова к подключению действующих сервисов.
-        </p>
       </aside>
 
       <div className={styles.workspace}>
@@ -71,10 +65,6 @@ export function AccountPage() {
             </Link>
           </div>
         </header>
-
-        <div className={styles.statusRow}>
-          <StatusNotice tone="info">Визуальная версия кабинета</StatusNotice>
-        </div>
 
         {panels[active]}
       </div>

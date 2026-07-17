@@ -1,0 +1,73 @@
+export const showcaseData = {
+  subscription: {
+    status: 'Подписка активна',
+    plan: 'Премиум · 12 месяцев',
+    startsAt: '15 июля 2026',
+    expiresAt: '15 июля 2027',
+    deviceLimit: 5,
+    connectedDevices: 3,
+    periodPrice: '10 500 ₽',
+    autoRenewal: 'Не настроено',
+  },
+  connection: {
+    maskedKey: '•••• •••• •••• 4K9Q',
+    label: 'Предпросмотр',
+  },
+  devices: [
+    {
+      id: 'macbook-air',
+      name: 'MacBook Air',
+      platform: 'macOS',
+      lastSeen: 'Сегодня, 14:32',
+      lastSeenDateTime: '2026-07-15T14:32:00+03:00',
+    },
+    {
+      id: 'iphone-15',
+      name: 'iPhone 15',
+      platform: 'iOS',
+      lastSeen: 'Сегодня, 09:18',
+      lastSeenDateTime: '2026-07-15T09:18:00+03:00',
+    },
+    {
+      id: 'samsung-tv',
+      name: 'Samsung TV',
+      platform: 'Android TV',
+      lastSeen: '12 июля, 22:41',
+      lastSeenDateTime: '2026-07-12T22:41:00+03:00',
+    },
+  ],
+  payments: [
+    {
+      id: 'annual-2026',
+      date: '15.07.2026',
+      dateTime: '2026-07-15',
+      amount: '10 500 ₽',
+      description: 'Премиум · 12 месяцев',
+      status: 'Оплачен',
+    },
+    {
+      id: 'quarter-2026-04',
+      date: '15.04.2026',
+      dateTime: '2026-04-15',
+      amount: '3 375 ₽',
+      description: '90 дней · 5 устройств',
+      status: 'Оплачен',
+    },
+    {
+      id: 'quarter-2026-01',
+      date: '15.01.2026',
+      dateTime: '2026-01-15',
+      amount: '3 375 ₽',
+      description: '90 дней · 5 устройств',
+      status: 'Оплачен',
+    },
+  ],
+  profile: {
+    email: 'user@nosokvpn.com',
+    emailStatus: 'Подтверждён',
+    telegram: '@alexey_nosok',
+    telegramStatus: 'Привязан',
+    loginMethods: 'Email и пароль · Telegram',
+    linkStatus: 'Email и Telegram связаны',
+  },
+} as const;

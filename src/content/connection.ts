@@ -3,7 +3,6 @@ import type { PlatformId } from '@/src/lib/domain';
 export interface ConnectionApp {
   id: string;
   name: string;
-  downloadUrl: string;
   note: string;
   steps: readonly string[];
 }
@@ -22,13 +21,34 @@ export const platforms: readonly PlatformConfig[] = [
       {
         id: 'happ-ios',
         name: 'Happ',
-        downloadUrl:
-          'https://apps.apple.com/us/app/happ-proxy-utility/id6504287215',
-        note: 'Официальная страница App Store',
+        note: 'Клиент для iPhone и iPad',
         steps: [
-          'Установите Happ из App Store.',
-          'Вернитесь в кабинет.',
-          'Нажмите «Добавить подписку».',
+          'Установите Happ на устройство.',
+          'Откройте в приложении раздел добавления подписки.',
+          'Выберите добавление по ссылке или QR-коду.',
+          'После импорта включите нужную локацию.',
+        ],
+      },
+      {
+        id: 'shadowrocket-ios',
+        name: 'Shadowrocket',
+        note: 'Клиент для iPhone и iPad',
+        steps: [
+          'Откройте Shadowrocket на устройстве.',
+          'Нажмите кнопку добавления конфигурации.',
+          'Импортируйте подписку по ссылке или QR-коду.',
+          'Выберите локацию и включите подключение.',
+        ],
+      },
+      {
+        id: 'hiddify-ios',
+        name: 'Hiddify',
+        note: 'Клиент для iPhone и iPad',
+        steps: [
+          'Откройте Hiddify на устройстве.',
+          'Выберите добавление нового профиля.',
+          'Импортируйте подписку по ссылке или QR-коду.',
+          'Откройте профиль и запустите подключение.',
         ],
       },
     ],
@@ -40,13 +60,34 @@ export const platforms: readonly PlatformConfig[] = [
       {
         id: 'happ-android',
         name: 'Happ',
-        downloadUrl:
-          'https://play.google.com/store/apps/details?id=com.happproxy',
-        note: 'Официальная страница Google Play',
+        note: 'Клиент для смартфонов и планшетов',
         steps: [
-          'Установите Happ.',
-          'Разрешите открытие ссылки из браузера.',
-          'Подтвердите добавление подписки в приложении.',
+          'Установите Happ на устройство.',
+          'Откройте добавление новой подписки.',
+          'Выберите импорт по ссылке или QR-коду.',
+          'Подтвердите подключение в приложении.',
+        ],
+      },
+      {
+        id: 'v2rayng-android',
+        name: 'v2rayNG',
+        note: 'Клиент для Android',
+        steps: [
+          'Откройте v2rayNG на устройстве.',
+          'Нажмите кнопку добавления профиля.',
+          'Импортируйте подписку по ссылке или QR-коду.',
+          'Обновите подписку и выберите локацию.',
+        ],
+      },
+      {
+        id: 'hiddify-android',
+        name: 'Hiddify',
+        note: 'Клиент для Android',
+        steps: [
+          'Откройте Hiddify на устройстве.',
+          'Выберите добавление нового профиля.',
+          'Импортируйте подписку по ссылке или QR-коду.',
+          'Откройте профиль и запустите подключение.',
         ],
       },
     ],
@@ -58,12 +99,34 @@ export const platforms: readonly PlatformConfig[] = [
       {
         id: 'throne-linux',
         name: 'Throne',
-        downloadUrl: 'https://github.com/throneproj/Throne/releases',
-        note: 'Официальные релизы проекта',
+        note: 'Десктопный клиент для Linux',
         steps: [
-          'Скачайте сборку для своей системы.',
-          'Откройте раздел групп.',
-          'Добавьте URL из кабинета после интеграции.',
+          'Установите Throne для своей системы.',
+          'Откройте раздел «Группы».',
+          'Создайте группу типа «Подписка».',
+          'Импортируйте подписку и обновите список локаций.',
+        ],
+      },
+      {
+        id: 'clash-verge-linux',
+        name: 'Clash Verge Rev',
+        note: 'Десктопный клиент для Linux',
+        steps: [
+          'Установите Clash Verge Rev.',
+          'Откройте раздел профилей.',
+          'Импортируйте подписку.',
+          'Выберите профиль и включите системный прокси.',
+        ],
+      },
+      {
+        id: 'hiddify-linux',
+        name: 'Hiddify',
+        note: 'Десктопный клиент для Linux',
+        steps: [
+          'Откройте Hiddify на компьютере.',
+          'Выберите добавление нового профиля.',
+          'Импортируйте подписку.',
+          'Откройте профиль и запустите подключение.',
         ],
       },
     ],
@@ -75,13 +138,45 @@ export const platforms: readonly PlatformConfig[] = [
       {
         id: 'happ-macos',
         name: 'Happ',
-        downloadUrl:
-          'https://apps.apple.com/us/app/happ-proxy-utility/id6504287215',
-        note: 'Официальная страница App Store',
+        note: 'Для Mac на Apple silicon и Intel',
         steps: [
-          'Установите приложение.',
-          'Вернитесь в браузер.',
-          'Добавьте подписку одной кнопкой.',
+          'Установите Happ на Mac.',
+          'Откройте добавление подписки.',
+          'Импортируйте её по ссылке или QR-коду.',
+          'Выберите локацию и включите подключение.',
+        ],
+      },
+      {
+        id: 'shadowrocket-macos',
+        name: 'Shadowrocket',
+        note: 'Клиент для macOS',
+        steps: [
+          'Откройте Shadowrocket на Mac.',
+          'Нажмите кнопку добавления конфигурации.',
+          'Импортируйте подписку.',
+          'Выберите локацию и включите подключение.',
+        ],
+      },
+      {
+        id: 'clash-verge-macos',
+        name: 'Clash Verge Rev',
+        note: 'Клиент для macOS',
+        steps: [
+          'Установите Clash Verge Rev.',
+          'Откройте раздел профилей.',
+          'Импортируйте подписку.',
+          'Выберите профиль и включите системный прокси.',
+        ],
+      },
+      {
+        id: 'hiddify-macos',
+        name: 'Hiddify',
+        note: 'Клиент для macOS',
+        steps: [
+          'Откройте Hiddify на Mac.',
+          'Выберите добавление нового профиля.',
+          'Импортируйте подписку.',
+          'Откройте профиль и запустите подключение.',
         ],
       },
     ],
@@ -93,37 +188,46 @@ export const platforms: readonly PlatformConfig[] = [
       {
         id: 'throne',
         name: 'Throne',
-        downloadUrl: 'https://github.com/throneproj/Throne/releases',
-        note: 'Windows 7, 10, 11',
+        note: 'Windows 7, 10 и 11',
         steps: [
           'Установите Throne.',
           'Откройте «Настройки» → «Группы».',
           'Создайте группу типа «Подписка».',
-          'Добавьте URL из кабинета и обновите подписку.',
-          'Включите режим TUN.',
+          'Импортируйте подписку и обновите список локаций.',
+          'При необходимости включите режим TUN.',
+        ],
+      },
+      {
+        id: 'nekobox-windows',
+        name: 'NekoBox',
+        note: 'Windows 10 и 11',
+        steps: [
+          'Откройте NekoBox и перейдите в раздел «Группы».',
+          'Создайте новую группу типа «Подписка».',
+          'Импортируйте подписку и обновите группу.',
+          'Выберите нужную локацию и запустите подключение.',
         ],
       },
       {
         id: 'clash-verge',
         name: 'Clash Verge Rev',
-        downloadUrl:
-          'https://github.com/clash-verge-rev/clash-verge-rev/releases',
-        note: 'Официальные релизы проекта',
+        note: 'Windows 10 и 11',
         steps: [
-          'Установите приложение.',
+          'Установите Clash Verge Rev.',
           'Откройте раздел профилей.',
-          'Импортируйте подписку из URL.',
+          'Импортируйте подписку.',
+          'Выберите профиль и включите системный прокси.',
         ],
       },
       {
         id: 'happ-windows',
         name: 'Happ',
-        downloadUrl: 'https://github.com/Happ-proxy/happ-desktop/releases',
-        note: 'Официальные релизы проекта',
+        note: 'Windows 10 и 11',
         steps: [
-          'Установите приложение.',
-          'Нажмите «Добавить подписку» в кабинете.',
-          'Подтвердите открытие приложения.',
+          'Установите Happ на компьютер.',
+          'Откройте добавление подписки.',
+          'Импортируйте её и выберите нужную локацию.',
+          'Включите подключение в приложении.',
         ],
       },
     ],
@@ -135,13 +239,23 @@ export const platforms: readonly PlatformConfig[] = [
       {
         id: 'happ-tv',
         name: 'Happ',
-        downloadUrl:
-          'https://play.google.com/store/apps/details?id=com.happproxy',
-        note: 'Официальная страница Google Play',
+        note: 'Клиент для Android TV',
         steps: [
-          'Установите приложение на телевизор.',
-          'Откройте сканирование QR.',
-          'QR появится после подключения подписочной системы.',
+          'Установите Happ на телевизор.',
+          'Откройте добавление подписки.',
+          'Отсканируйте QR-код с экрана кабинета.',
+          'Выберите локацию и включите подключение.',
+        ],
+      },
+      {
+        id: 'v2rayng-android-tv',
+        name: 'v2rayNG',
+        note: 'Клиент Android с управлением на большом экране',
+        steps: [
+          'Откройте v2rayNG на телевизоре.',
+          'Перейдите к добавлению профиля.',
+          'Отсканируйте QR-код с экрана кабинета.',
+          'Обновите подписку и выберите локацию.',
         ],
       },
     ],
@@ -153,13 +267,23 @@ export const platforms: readonly PlatformConfig[] = [
       {
         id: 'happ-apple-tv',
         name: 'Happ',
-        downloadUrl:
-          'https://apps.apple.com/us/app/happ-proxy-utility/id6504287215',
-        note: 'Официальная страница App Store',
+        note: 'Клиент для Apple TV',
         steps: [
-          'Установите приложение на Apple TV.',
+          'Установите Happ на Apple TV.',
           'Откройте добавление подписки.',
-          'Используйте защищённый QR из кабинета.',
+          'Отсканируйте QR-код с экрана кабинета.',
+          'Выберите локацию и включите подключение.',
+        ],
+      },
+      {
+        id: 'shadowrocket-apple-tv',
+        name: 'Shadowrocket',
+        note: 'Клиент для Apple TV',
+        steps: [
+          'Откройте Shadowrocket на Apple TV.',
+          'Перейдите к добавлению конфигурации.',
+          'Отсканируйте QR-код с экрана кабинета.',
+          'Выберите локацию и включите подключение.',
         ],
       },
     ],

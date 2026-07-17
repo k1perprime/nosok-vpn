@@ -2,12 +2,11 @@
 
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AuthDialog } from '@/src/features/auth/AuthDialog';
 import styles from './SiteHeader.module.css';
 
 const links = [
-  ['Как подключить', '#how'],
   ['Локации', '#locations'],
   ['Стоимость', '#calculator'],
   ['Помощь', '#contacts'],
@@ -16,6 +15,13 @@ const links = [
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  function openAuthFromMenu() {
+    menuButtonRef.current?.focus();
+    setMenuOpen(false);
+    setAuthOpen(true);
+  }
 
   return (
     <>
@@ -28,10 +34,13 @@ export function SiteHeader() {
               className={styles.logoMark}
               src="/images/nosok-header-icon.png"
               alt=""
+              width="60"
+              height="60"
             />
             Nosok VPN
           </Link>
           <button
+            ref={menuButtonRef}
             type="button"
             className={styles.menuButton}
             aria-label={menuOpen ? 'Закрыть меню' : 'Открыть меню'}
@@ -51,10 +60,16 @@ export function SiteHeader() {
                 {label}
               </a>
             ))}
+            {menuOpen ? (
+              <button
+                type="button"
+                className={styles.mobileLogin}
+                onClick={openAuthFromMenu}
+              >
+                Войти
+              </button>
+            ) : null}
           </nav>
-          <a href="#calculator" className={styles.cta}>
-            Подключить
-          </a>
           <Link href="/account" className={styles.account}>
             Личный кабинет
           </Link>

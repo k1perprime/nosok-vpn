@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { ExternalLink } from 'lucide-react';
-import { ArtBriefCard } from '@/src/components/art/ArtBriefCard';
 import { Button } from '@/src/components/ui/Button';
 import { StatusNotice } from '@/src/components/ui/StatusNotice';
 import { getPlatform, platforms } from '@/src/content/connection';
+import { RotatingIllustration } from '@/src/features/illustrations/RotatingIllustration';
 import type { PlatformId } from '@/src/lib/domain';
 import { InstructionAccordion } from './InstructionAccordion';
 import { DecorativeQr } from './DecorativeQr';
@@ -16,39 +15,79 @@ interface Feedback {
   tone: 'info' | 'error';
 }
 
-export function ConnectionWizard() {
+interface ConnectionWizardProps {
+  id?: string;
+  className?: string;
+  headingId?: string;
+  showArtwork?: boolean;
+  onNotice?(message: string): void;
+}
+
+const integrationNotice =
+  'Ссылки и подключение станут доступны после интеграции.';
+const qrPreviewId = 'connection-qr-preview';
+
+export function ConnectionWizard({
+  id,
+  className = '',
+  headingId = 'wizard-title',
+  showArtwork = true,
+  onNotice,
+}: ConnectionWizardProps = {}) {
   const [platformId, setPlatformId] = useState<PlatformId>('ios');
   const platform = getPlatform(platformId);
   const [appId, setAppId] = useState(platform.apps[0].id);
   const app =
     platform.apps.find((candidate) => candidate.id === appId) ?? platform.apps[0];
   const [feedback, setFeedback] = useState<Feedback | null>(null);
+  const [qrVisible, setQrVisible] = useState(false);
+
+  function clearTransientState() {
+    setFeedback(null);
+    setQrVisible(false);
+    onNotice?.('');
+  }
 
   function changePlatform(next: PlatformId) {
     const nextPlatform = getPlatform(next);
     setPlatformId(next);
     setAppId(nextPlatform.apps[0].id);
-    setFeedback(null);
+    clearTransientState();
   }
 
   function showIntegrationNotice() {
-    setFeedback({
-      message: 'Ключ подключения и QR появятся после интеграции.',
-      tone: 'info',
-    });
+    if (onNotice) {
+      onNotice(integrationNotice);
+      return;
+    }
+
+    setFeedback({ message: integrationNotice, tone: 'info' });
+  }
+
+  function toggleQr() {
+    const nextQrVisible = !qrVisible;
+    setQrVisible(nextQrVisible);
+    if (nextQrVisible) {
+      showIntegrationNotice();
+    }
   }
 
   return (
-    <section className={styles.wizard} aria-labelledby="wizard-title">
+    <section
+      id={id}
+      className={`${styles.wizard} ${className}`}
+      aria-labelledby={headingId}
+      data-with-artwork={showArtwork ? 'true' : 'false'}
+    >
       <div className={styles.controls}>
         <div className={styles.heading}>
           <p className="eyebrow">Установка</p>
-          <h3 id="wizard-title" tabIndex={-1}>
+          <h2 id={headingId} tabIndex={-1}>
             Подключить устройство
-          </h3>
+          </h2>
           <p>
-            Выберите платформу и приложение. Ключ появится только после
-            подключения действующей системы подписок.
+            Сначала выберите платформу и приложение, затем пройдите три
+            коротких шага подключения.
           </p>
         </div>
 
@@ -75,7 +114,7 @@ export function ConnectionWizard() {
               aria-pressed={app.id === item.id}
               onClick={() => {
                 setAppId(item.id);
-                setFeedback(null);
+                clearTransientState();
               }}
             >
               {item.name}
@@ -88,12 +127,15 @@ export function ConnectionWizard() {
             01
           </span>
           <div>
-            <h4 id="download-title">Установите приложение</h4>
+            <h3 id="download-title">Установите приложение</h3>
             <p>{app.note}</p>
-            <a href={app.downloadUrl} target="_blank" rel="noreferrer">
+            <Button
+              variant="secondary"
+              className={styles.downloadButton}
+              onClick={showIntegrationNotice}
+            >
               Скачать {app.name}
-              <ExternalLink aria-hidden="true" />
-            </a>
+            </Button>
           </div>
         </section>
 
@@ -102,12 +144,24 @@ export function ConnectionWizard() {
             02
           </span>
           <div>
-            <h4 id="add-title">Добавьте подписку</h4>
+            <h3 id="add-title">Добавьте подписку</h3>
             <p>Основной способ, резервная ссылка или защищённый QR.</p>
-            <div className={styles.subscriptionPreview}>
-              <div>
-                <div className={styles.actions}>
-                  <Button onClick={showIntegrationNotice}>Добавить подписку</Button>
+            <div
+              className={styles.subscriptionPreview}
+              data-qr-visible={qrVisible ? 'true' : 'false'}
+            >
+              <div
+                className={styles.subscriptionActions}
+                role="group"
+                aria-label="Действия с подпиской"
+              >
+                <Button
+                  className={styles.subscriptionPrimary}
+                  onClick={showIntegrationNotice}
+                >
+                  Добавить подписку
+                </Button>
+                <div className={styles.subscriptionSecondary}>
                   <Button
                     variant="secondary"
                     onClick={showIntegrationNotice}
@@ -116,16 +170,18 @@ export function ConnectionWizard() {
                   </Button>
                   <Button
                     variant="ghost"
-                    onClick={showIntegrationNotice}
+                    aria-expanded={qrVisible}
+                    aria-controls={qrPreviewId}
+                    onClick={toggleQr}
                   >
-                    Показать QR
+                    {qrVisible ? 'Скрыть QR' : 'Показать QR'}
                   </Button>
                 </div>
                 {feedback ? (
                   <StatusNotice tone={feedback.tone}>{feedback.message}</StatusNotice>
                 ) : null}
               </div>
-              <DecorativeQr />
+              {qrVisible ? <DecorativeQr id={qrPreviewId} /> : null}
             </div>
           </div>
         </section>
@@ -133,18 +189,15 @@ export function ConnectionWizard() {
         <InstructionAccordion appName={app.name} steps={app.steps} />
       </div>
 
-      <div className={styles.art}>
-        <ArtBriefCard
-          scene="Подключение"
-          action="Носок протягивает одну нить от кабинета к выбранному устройству"
-          emotion="Сосредоточенная дружелюбность"
-          background="Светлое техническое поле без киберпанка"
-          aspect="16:10"
-          transparency="Маскот и нить на прозрачном фоне"
-          desktopCrop="Инструкция слева, маскот справа"
-          mobileCrop="Вертикальный маскот после выбора приложения"
-        />
-      </div>
+      {showArtwork ? (
+        <div className={styles.art}>
+          <RotatingIllustration
+            slotId="account.connection.aside"
+            className={styles.connectionIllustration}
+            sizes="(max-width: 1080px) 100vw, 34vw"
+          />
+        </div>
+      ) : null}
     </section>
   );
 }

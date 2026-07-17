@@ -15,10 +15,10 @@ export function ProfilePanel({ onHelp }: { onHelp(): void }) {
         <h2 id="profile-title">Профиль</h2>
       </div>
       <dl className={styles.dataList}>
-        <div><dt>Email</dt><dd>Подключим после интеграции</dd></div>
-        <div><dt>Подтверждение email</dt><dd>Подключим после интеграции</dd></div>
-        <div><dt>Telegram</dt><dd>Подключим после интеграции</dd></div>
-        <div><dt>Связка способов входа</dt><dd>Подключим после интеграции</dd></div>
+        <div><dt>Email</dt><dd>После входа здесь появится email</dd></div>
+        <div><dt>Подтверждение email</dt><dd>После входа здесь появится статус подтверждения</dd></div>
+        <div><dt>Telegram</dt><dd>Telegram пока не привязан</dd></div>
+        <div><dt>Связка способов входа</dt><dd>Email и Telegram пока не связаны</dd></div>
       </dl>
       <div className={styles.profileActions}>
         <Button onClick={() => setMessage('Привязку email и Telegram подключим после интеграции.')}>Связать email и Telegram</Button>

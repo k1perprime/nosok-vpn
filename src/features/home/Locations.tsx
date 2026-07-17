@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { ArtBriefCard } from '@/src/components/art/ArtBriefCard';
 import { locations, type LocationRegion } from '@/src/content/home';
+import { RotatingIllustration } from '@/src/features/illustrations/RotatingIllustration';
 import styles from './HomePage.module.css';
 
 const regions = [
@@ -78,15 +78,10 @@ export function Locations() {
             ))}
           </div>
           <div className={styles.locationsArt}>
-            <ArtBriefCard
-              scene="Локации"
-              action="Носок раскладывает вязаную карту и отмечает города петлями"
-              emotion="Любопытство путешественника"
-              background="Абстрактная пастельная карта без политических границ"
-              aspect="1:1"
-              transparency="Маскот и метки отдельными слоями"
-              desktopCrop="Карта справа от карточек"
-              mobileCrop="Карта под двумя первыми карточками"
+            <RotatingIllustration
+              slotId="home.locations.aside"
+              className={styles.locationsIllustration}
+              sizes="(max-width: 980px) min(720px, 100vw), 38vw"
             />
           </div>
         </div>

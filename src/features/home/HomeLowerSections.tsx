@@ -1,6 +1,6 @@
-import { ArtBriefCard } from '@/src/components/art/ArtBriefCard';
 import { faq, reviews } from '@/src/content/home';
 import { PricingCalculator } from '@/src/features/calculator/PricingCalculator';
+import { RotatingIllustration } from '@/src/features/illustrations/RotatingIllustration';
 import styles from './HomePage.module.css';
 
 export function HomeLowerSections() {
@@ -64,15 +64,10 @@ export function HomeLowerSections() {
             </a>
           </div>
           <div className={styles.finalArt}>
-            <ArtBriefCard
-              scene="Финальный призыв"
-              action="Расслабленный Носок держит аккуратно связанный набор устройств"
-              emotion="Тёплая уверенность"
-              background="Однотонный шалфейный фон"
-              aspect="3:2"
-              transparency="Маскот и клубок отдельными слоями"
-              desktopCrop="Маскот справа"
-              mobileCrop="Маскот под кнопкой"
+            <RotatingIllustration
+              slotId="home.final-cta.lifestyle"
+              className={styles.finalIllustration}
+              sizes="(max-width: 980px) min(720px, 100vw), 38vw"
             />
           </div>
         </div>

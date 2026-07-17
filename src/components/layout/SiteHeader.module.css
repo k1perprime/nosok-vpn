@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  min-height: 76px;
+  min-height: var(--header-height);
   background: rgb(247 241 229 / .96);
   border-bottom: 1px solid var(--border);
 }
@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  min-height: 76px;
+  min-height: var(--header-height);
 }
 
 .logo {
@@ -28,8 +28,9 @@
 
 .logoMark {
   display: block;
-  width: 34px;
-  height: 34px;
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
   object-fit: contain;
   object-position: center;
 }
@@ -54,7 +55,7 @@
   min-height: 44px;
   padding: 0 14px;
   color: var(--blue-ink);
-  background: color-mix(in srgb, var(--blue-dust) 46%, var(--surface));
+  background: color-mix(in srgb, var(--blue-dust) 30%, var(--surface));
   border: 1px solid color-mix(in srgb, var(--blue-ink) 54%, var(--border));
   border-radius: 12px;
   font-weight: 850;
@@ -69,7 +70,6 @@
   border-color: var(--blue-ink);
 }
 
-.cta,
 .login {
   display: inline-flex;
   align-items: center;
@@ -81,9 +81,8 @@
   text-decoration: none;
 }
 
-.cta {
-  color: var(--surface);
-  background: var(--text);
+.mobileLogin {
+  display: none;
 }
 
 .login {
@@ -128,15 +127,37 @@
   .menuButton {
     display: grid;
   }
-
-  .cta {
-    display: none;
-  }
 }
 
 @media (max-width: 590px) {
+  .logo {
+    flex-shrink: 0;
+    gap: 4px;
+    font-size: .92rem;
+  }
+
+  .logoMark {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+  }
+
   .login {
     display: none;
+  }
+
+  .navOpen .mobileLogin {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 16px;
+    color: var(--text);
+    background: var(--terracotta-soft);
+    border: 1px solid var(--terracotta);
+    border-radius: 12px;
+    font: inherit;
+    font-weight: 750;
   }
 
   .inner {
@@ -144,7 +165,27 @@
   }
 
   .account {
+    flex-shrink: 0;
     padding-inline: 10px;
     font-size: .8rem;
+  }
+
+  .menuButton {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .inner {
+    gap: 4px;
+  }
+
+  .logo {
+    font-size: .9rem;
+  }
+
+  .account {
+    padding-inline: 6px;
+    font-size: .72rem;
   }
 }

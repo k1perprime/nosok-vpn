@@ -29,12 +29,17 @@ const modeCopy = {
   },
 } as const;
 
-export function AuthDialog({
-  open,
+type OpenAuthDialogProps = Omit<AuthDialogProps, 'open'>;
+
+export function AuthDialog({ open, ...props }: AuthDialogProps) {
+  return open ? <OpenAuthDialog {...props} /> : null;
+}
+
+function OpenAuthDialog({
   onClose,
   initialMode = 'login',
   onAuthenticated,
-}: AuthDialogProps) {
+}: OpenAuthDialogProps) {
   const [mode, setMode] = useState<AuthMode>(initialMode);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -104,7 +109,7 @@ export function AuthDialog({
 
   return (
     <Dialog
-      open={open}
+      open
       onClose={onClose}
       title={modeCopy[mode].title}
       busy={pending}

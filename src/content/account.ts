@@ -1,7 +1,6 @@
 import {
   CircleHelp,
   CreditCard,
-  Gauge,
   Laptop,
   PlugZap,
   ReceiptText,
@@ -11,7 +10,6 @@ import type { LucideIcon } from 'lucide-react';
 import type { AccountLinkState, SubscriptionState } from '@/src/lib/domain';
 
 export type AccountSection =
-  | 'overview'
   | 'subscription'
   | 'connection'
   | 'devices'
@@ -20,7 +18,6 @@ export type AccountSection =
   | 'help';
 
 export const accountNavigation = [
-  { id: 'overview', label: 'Обзор', icon: Gauge, mobile: true },
   { id: 'subscription', label: 'Подписка', icon: CreditCard, mobile: true },
   { id: 'connection', label: 'Подключение', icon: PlugZap, mobile: true },
   { id: 'devices', label: 'Устройства', icon: Laptop, mobile: true },

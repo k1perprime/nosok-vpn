@@ -87,7 +87,7 @@ it('renders all eight approved final art-brief values', async () => {
     .getByRole('heading', { name: 'Пора связать всё важное.' })
     .closest('section');
   const artBrief = within(finalSection!).getByLabelText(
-    'Арт-бриф: Финальный призыв',
+    'Финальный призыв',
   );
 
   expect(artBrief.querySelectorAll('dd')).toHaveLength(8);
